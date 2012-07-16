@@ -1,0 +1,29 @@
+alias migrate="rake db:migrate db:test:prepare"
+alias remigrate="rake db:migrate && rake db:migrate:redo && rake db:schema:dump db:test:prepare"
+alias gadd="git add -u && git add . && git status"
+alias svnprecommit="git svn rebase && rake features && rake test"
+alias hgprecommit="hg pull && rake features && rake test"
+alias cuc="cucumber -r features"
+alias g="git"
+alias tu="ruby_test unit"
+alias tf="ruby_test functional"
+alias su="ruby_tu_rs unit"
+alias sf="ruby_tu_rs functional"
+alias ti="ruby_test integration"
+alias hgdi="hg diff --color=always --git | less -r"
+alias hgclean="hg status | grep -e '^\\?' | sed 's/^\\?//' | xargs -t rm -f"
+alias gi="sudo gem install"
+alias giv="sudo gem install -v"
+alias gci="git pull --rebase && rake && git push"
+#Custom aliases
+alias hd='ruby /hd.rb disk1s1'
+alias spree_tunnel='script/server & rake facebooker:tunnel:start'
+alias hd='sudo ruby hd.rb'
+alias a='compgen -a'
+alias sc='cd ~/projects/MIKAMAI/CHURCH/churchs;rvm use ree@churchs;git pull origin new-frontend; bundle; script/server -p 3001'
+alias sch='cd ~/projects/MIKAMAI/CHURCH/churchs-html-images; git pull origin master;cd ~/projects/MIKAMAI/CHURCH/churchs-html;rvm use ree@churchs-html;git pull origin master; bundle;rails s'
+alias scol='cd ~/projects/colorsoflife;rvm use ruby-1.9.2-p290@colorsoflife;rake preview'
+alias sp-e='cd ~/projects/MIKAMAI/PRADA/prada-html5-ecommerce;rvm use ree-1.8.7-2012.02@prada-html5-ecommerce;git pull origin master;bundle;rails s;'
+alias sp-i='cd ~/projects/MIKAMAI/PRADA/prada-html5-institutional;rvm use ree-1.8.7-2012.02@prada-html5-institutional;git pull origin master;bundle;rails s -p 3001;'
+alias sp-w='cd ~/projects/MIKAMAI/PRADA/prada-world;rvm use ree-1.8.7-2012.02@prada-world;git pull origin master;bundle;script/server -p 3002;'
+alias sp-c='cd ~/projects/MIKAMAI/PRADA/prada-customize;rvm use ree-1.8.7-2012.02@prada-customize;git pull origin master;bundle;rails s -p 3003;'
