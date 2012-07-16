@@ -1,0 +1,12 @@
+[submodule "powerline"]
+	path = powerline
+	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule "taglist"]
+	path = taglist
+	url = git://github.com/chrismetcalf/vim-taglist.git
+[submodule "ConqueTerm"]
+	path = ConqueTerm
+	url = https://github.com/carlobaldassi/ConqueTerm.git
+[submodule "vim-rails"]
+	path = vim-rails
+	url = https://github.com/tpope/vim-rails.git

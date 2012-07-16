@@ -1,0 +1,3 @@
+" setup the leader key
+let mapleader = ","
+let NERDTreeQuitOnOpen = 1
