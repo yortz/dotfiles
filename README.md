@@ -1,3 +1,5 @@
+# Description
+
 A bunch of useful dotfiles I use to sync different development tools:
 
 - vim
@@ -8,4 +10,11 @@ A bunch of useful dotfiles I use to sync different development tools:
 
 on different machines.
 
+# Install
+
+Clone the repo (git clone https://github.com/yortz/dotfiles.git)
+
+symlink dotfiles to your needs e.g.
+
+$ ln -nfs ~/dotfiles/vimrc ~/.vimrc 
 
