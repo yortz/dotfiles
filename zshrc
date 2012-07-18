@@ -37,6 +37,8 @@ fi
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git)
 
+alias rvm-prompt=$HOME/.rvm/bin/rvm-prompt
+
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
