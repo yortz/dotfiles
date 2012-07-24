@@ -1,7 +1,4 @@
-"colorscheme railscasts
-"colorscheme codeschool
-colorscheme tomorrow-night
-set gfn=Monaco:h14
+set background=dark
 
 "folding settings
 set foldmethod=syntax         "fold based on syntax
