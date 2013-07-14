@@ -10,3 +10,6 @@
 [submodule "vim-rails"]
 	path = vim-rails
 	url = https://github.com/tpope/vim-rails.git
+[submodule "vim-elixir"]
+	path = vim-elixir
+	url = https://github.com/elixir-lang/vim-elixir.git
