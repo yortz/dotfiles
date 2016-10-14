@@ -1,33 +1,94 @@
-set background=dark
+syntax on
+filetype on           " Enable filetype detection
+filetype indent on    " Enable filetype-specific indenting
+filetype plugin on    " Enable filetype-specific plugins
+filetype plugin indent on " Enable filetype-specific indenting and plugins
 
-"folding settings
-set foldmethod=syntax         "fold based on syntax
-set foldlevelstart=1
+"Ruby Stuff
+augroup myfiletypes
+    " Clear old autocmds in group
+    autocmd!
+    " autoindent with two spaces, always expand tabs
+    autocmd FileType ruby,eruby,yaml,markdown set ai sw=2 sts=2 et
+augroup END
 
-let javaScript_fold=1         " JavaScript
-let perl_fold=1               " Perl
-let php_folding=1             " PHP
-let r_syntax_folding=1        " R
-let ruby_fold=1               " Ruby
-let sh_fold_enabled=1         " sh
-let vimsyn_folding='af'       " Vim script
-let xml_syntax_folding=1      " XMLx
+set t_Co=256   " This is may or may not needed.
+set background=dark  "light
+colorscheme PaperColor
 
-set foldnestmax=10            "deepest fold is 10 levels
-set nofoldenable              "dont fold by default
+let g:NERDTreeWinPos = "left"
+set guioptions-=T " Removes top toolbar
+set guioptions-=r " Removes right hand scroll bar
+set go-=L " Removes left hand scroll bar
+autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" " displays <% %> correctly
 
-" switching tabs firefox style
-" map <D-S-]> gt
-" map <D-S-[> gT
-map <D-1> 1gt
-map <D-2> 2gt
-map <D-3> 3gt
-map <D-4> 4gt
-map <D-5> 5gt
-map <D-6> 6gt
-map <D-7> 7gt
-map <D-8> 8gt
-map <D-9> 9gt
-map <D-0> :tablast<CR>
+:set cpoptions+=$ " puts a $ marker for the end of words/lines in cw/c$ commands
 
-let NERDTreeQuitOnOpen = 1
+" set paste toggle
+set pastetoggle=<F2>
+
+" Softtabs, 2 spaces
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
+" Display extra whitespace
+set list listchars=tab:»·,trail:·
+
+augroup vimrcEx
+  autocmd!
+
+  " For all text files set 'textwidth' to 78 characters.
+  autocmd FileType text setlocal textwidth=78
+
+  " Enable spellchecking for Markdown
+  autocmd BufRead,BufNewFile *.md setlocal spell
+
+  " Automatically wrap at 80 characters for Markdown
+  autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+augroup END
+
+" Treat <li> and <p> tags like the block tags they are
+let g:html_indent_tags = 'li\|p'
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" vim-test settings
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+" make test commands execute using dispatch.vim
+let test#strategy = "dispatch"
+
+set autoindent " Auto indention should be on
+
+"CTRL.p settings
+let g:ctrlp_working_path_mode = 'ra' "When invoked without an explicit starting directory, CtrlP will set its local working directory according to this variable:
+"If a file is already open, open it again in a new pane instead of switching to the existing pane
+let g:ctrlp_switch_buffer = 'et'
+"Exclude files and directories using Vim's wildignore and CtrlP's own g:ctrlp_custom_ignore. If a custom listing command is being used, exclusions are ignored: MacOSX/Linux
+ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
+"Use a custom file listing command:
+let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
+"let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
+
+" Tab completion
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*

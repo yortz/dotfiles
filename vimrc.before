@@ -1,3 +1,30 @@
+call janus#disable_plugin('vroom')
+call janus#disable_plugin('powerline')
+
 " setup the leader key
 let mapleader = ","
-let NERDTreeQuitOnOpen = 1
+
+" Powerline Options & Fonts
+set encoding=utf-8
+set guifont=Monaco\ for\ Powerline:h12
+set nocompatible
+set laststatus=2
+
+" Copy selected lines to clipboard
+" http://stackoverflow.com/questions/9166328/how-to-copy-selected-lines-to-clipboard-in-vim
+set clipboard=unnamedplus
+
+:nmap <C-N><C-N> :set invnumber<CR>
+
+" Vim-Airline Settings:
+"automatically populate the g:airline_symbols dictionary with the powerline
+"symbols
+let g:airline_powerline_fonts = 1
+let g:airline_theme='powerlineish'
+
+"Tmuxline settings
+let g:airline#extensions#tmuxline#enabled = 0
+let g:tmuxline_theme = 'nightly_fox'
+
+" highlight the current line
+set cursorline
